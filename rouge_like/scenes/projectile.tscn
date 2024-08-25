@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://1xq5n65xqgnv"]
+
+[ext_resource type="Texture2D" uid="uid://bqorelbjb67sj" path="res://assets/basic_projectile.png" id="1_1v682"]
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_noqtj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ol88e"]
+radius = 6.0
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_noqtj")
+
+[node name="ProjectileSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_1v682")
+
+[node name="ProjectileCollision" type="CollisionShape2D" parent="."]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CircleShape2D_ol88e")
+
+[node name="ProjectileLife" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ProjectileLife" to="." method="_on_projectile_life_timeout"]

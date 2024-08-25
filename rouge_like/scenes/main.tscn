@@ -1,13 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://y01l0jmtqy1"]
+[gd_scene load_steps=5 format=3 uid="uid://y01l0jmtqy1"]
 
 [ext_resource type="PackedScene" uid="uid://dtx66eipfwsj5" path="res://scenes/player.tscn" id="1_md022"]
 [ext_resource type="PackedScene" uid="uid://dsp70ybxvnqu4" path="res://scenes/test_map.tscn" id="1_woxv8"]
+[ext_resource type="PackedScene" uid="uid://dmyt7u1qe0xkr" path="res://scenes/slime.tscn" id="4_pgcf1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ymdno"]
+vertices = PackedVector2Array(244, 145, -242, 145, -242, -147, 244, -147)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-252, -157, 254, -157, 254, 155, -252, 155)])
 
 [node name="Main" type="Node2D"]
 
 [node name="TestMap" parent="." instance=ExtResource("1_woxv8")]
 
-[node name="PlayerBody" parent="." instance=ExtResource("1_md022")]
+[node name="PlayerCamera" type="Camera2D" parent="TestMap"]
+visible = false
+zoom = Vector2(3, 3)
 
-[node name="PlayerCamera" type="Camera2D" parent="PlayerBody"]
-zoom = Vector2(6.12, 6.12)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="TestMap"]
+navigation_polygon = SubResource("NavigationPolygon_ymdno")
+
+[node name="Player" parent="." instance=ExtResource("1_md022")]
+position = Vector2(0, 0)
+
+[node name="Slime" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_pgcf1")]
+position = Vector2(-124, -62)
+target = NodePath("../Player")
