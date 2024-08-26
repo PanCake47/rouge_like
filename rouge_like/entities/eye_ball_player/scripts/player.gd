@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const projectile_scene = preload("res://scenes/projectile.tscn")
+const projectile_scene = preload("res://entities/eye_ball_player/basic_projectile/scenes/projectile.tscn")
 
-@export var speed = 100
+@export var speed = 200
 @export var fire_rate = 0.5
 @onready var shooting_point = $ShootingPoint
 @onready var fire_rate_timer = $FireRate
@@ -45,9 +45,10 @@ func shoot(direction: Vector2):
 
 func _on_player_area_body_entered(body):
 	print("Collision with:", body)
-	player_collision.call_deferred("set", "disabled", true)
-	player_area_collision.call_deferred("set", "disabled", true)
-	hit_timer.start()
+	if body.is_in_group("enemies"):
+		player_collision.call_deferred("set", "disabled", true)
+		player_area_collision.call_deferred("set", "disabled", true)
+		hit_timer.start()
 
 func _on_hit_timer_timeout():
 	player_collision.call_deferred("set", "disabled", false)

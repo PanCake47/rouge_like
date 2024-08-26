@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqorelbjb67sj"
-path="res://.godot/imported/basic_projectile.png-c08c1a3f602c34113219ef132d025b41.ctex"
+uid="uid://b58b0uybjk1gj"
+path="res://.godot/imported/tile_map.png-eca4888316887327988c824a6e1df1aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/basic_projectile.png"
-dest_files=["res://.godot/imported/basic_projectile.png-c08c1a3f602c34113219ef132d025b41.ctex"]
+source_file="res://stages/stage 1/assets/tile_map.png"
+dest_files=["res://.godot/imported/tile_map.png-eca4888316887327988c824a6e1df1aa.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dtx66eipfwsj5"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_nm2ck"]
-[ext_resource type="Texture2D" uid="uid://c15pdd4cnf6b5" path="res://assets/eye_ball.png" id="1_sijxl"]
+[ext_resource type="Script" path="res://entities/eye_ball_player/scripts/player.gd" id="1_nm2ck"]
+[ext_resource type="Texture2D" uid="uid://c15pdd4cnf6b5" path="res://entities/eye_ball_player/assets/eye_ball.png" id="1_sijxl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfik8"]
 atlas = ExtResource("1_sijxl")
@@ -82,7 +82,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_axqku"]
-radius = 15.0
+radius = 14.5455
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -101,8 +101,11 @@ frame_progress = 0.389769
 shape = SubResource("CircleShape2D_axqku")
 
 [node name="PlayerArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
 
 [node name="PlayerAreaCollision" type="CollisionShape2D" parent="PlayerArea"]
+scale = Vector2(1.02, 1.02)
 shape = SubResource("CircleShape2D_axqku")
 
 [node name="ShootingPoint" type="Marker2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://1xq5n65xqgnv"]
 
-[ext_resource type="Texture2D" uid="uid://bqorelbjb67sj" path="res://assets/basic_projectile.png" id="1_1v682"]
-[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_noqtj"]
+[ext_resource type="Script" path="res://entities/eye_ball_player/basic_projectile/scripts/projectile.gd" id="1_rm75g"]
+[ext_resource type="Texture2D" uid="uid://bqorelbjb67sj" path="res://entities/eye_ball_player/basic_projectile/assets/basic_projectile.png" id="2_5mdd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ol88e"]
 radius = 6.0
@@ -9,11 +9,11 @@ radius = 6.0
 [node name="Projectile" type="Area2D"]
 collision_layer = 8
 collision_mask = 5
-script = ExtResource("1_noqtj")
+script = ExtResource("1_rm75g")
 
 [node name="ProjectileSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_1v682")
+texture = ExtResource("2_5mdd0")
 
 [node name="ProjectileCollision" type="CollisionShape2D" parent="."]
 scale = Vector2(1.1, 1.1)

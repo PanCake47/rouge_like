@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://y01l0jmtqy1"]
+
+[ext_resource type="PackedScene" uid="uid://dtx66eipfwsj5" path="res://entities/eye_ball_player/scenes/player.tscn" id="1_md022"]
+[ext_resource type="PackedScene" uid="uid://dsp70ybxvnqu4" path="res://stages/stage 1/test_level/scenes/test_map.tscn" id="1_woxv8"]
+[ext_resource type="PackedScene" uid="uid://dmyt7u1qe0xkr" path="res://entities/slime/scenes/slime.tscn" id="4_pgcf1"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ymdno"]
+vertices = PackedVector2Array(239, -143, 238, 143, 177, -15, 177, -81, 177, 113, -239, 143, 111, 113, -207, -143, 111, -81, -207, -79, 111, -15, -239, -79, 111, 47, 177, 47)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 5, 6), PackedInt32Array(7, 0, 3, 8), PackedInt32Array(9, 7, 8, 10), PackedInt32Array(6, 5, 11, 9, 12), PackedInt32Array(12, 9, 10, 13), PackedInt32Array(13, 10, 2), PackedInt32Array(13, 2, 1), PackedInt32Array(13, 1, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(176, -16, 176, -80, 112, -80, 112, -16), PackedVector2Array(112, 48, 176, 48, 176, 112, 112, 112), PackedVector2Array(-240, -80, -208, -80, -208, -144, 240, -144, 239, 144, -240, 144)])
+agent_radius = 1.0
+
+[node name="Main" type="Node2D"]
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+zoom = Vector2(3.2, 3.2)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-20, 0)
+navigation_polygon = SubResource("NavigationPolygon_ymdno")
+metadata/_edit_group_ = true
+
+[node name="TestMap" parent="NavigationRegion2D" instance=ExtResource("1_woxv8")]
+
+[node name="Player" parent="NavigationRegion2D" instance=ExtResource("1_md022")]
+position = Vector2(0, 0)
+
+[node name="Enemies" type="Node2D" parent="NavigationRegion2D"]
+
+[node name="Slime" parent="NavigationRegion2D/Enemies" node_paths=PackedStringArray("target") instance=ExtResource("4_pgcf1")]
+position = Vector2(-182, -115)
+target = NodePath("../../Player")
+
+[node name="Slime2" parent="NavigationRegion2D/Enemies" node_paths=PackedStringArray("target") instance=ExtResource("4_pgcf1")]
+position = Vector2(-217, 124)
+target = NodePath("../../Player")
+
+[node name="Slime3" parent="NavigationRegion2D/Enemies" node_paths=PackedStringArray("target") instance=ExtResource("4_pgcf1")]
+position = Vector2(219, 125)
+target = NodePath("../../Player")
+
+[node name="Slime4" parent="NavigationRegion2D/Enemies" node_paths=PackedStringArray("target") instance=ExtResource("4_pgcf1")]
+position = Vector2(215, -124)
+target = NodePath("../../Player")

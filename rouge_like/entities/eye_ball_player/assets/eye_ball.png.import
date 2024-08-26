@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c15pdd4cnf6b5"
-path="res://.godot/imported/eye_ball.png-5bbf00c4167e659867a31458afcdc488.ctex"
+path="res://.godot/imported/eye_ball.png-653d92396e5112d1b10978ed0c6d7b50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/eye_ball.png"
-dest_files=["res://.godot/imported/eye_ball.png-5bbf00c4167e659867a31458afcdc488.ctex"]
+source_file="res://entities/eye_ball_player/assets/eye_ball.png"
+dest_files=["res://.godot/imported/eye_ball.png-653d92396e5112d1b10978ed0c6d7b50.ctex"]
 
 [params]
 
