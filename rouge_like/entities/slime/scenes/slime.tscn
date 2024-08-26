@@ -35,7 +35,6 @@ rotation = 1.5708
 shape = SubResource("CircleShape2D_grx11")
 
 [node name="SlimeNavigation" type="NavigationAgent2D" parent="."]
-path_max_distance = 10.0
 path_postprocessing = 1
 simplify_path = true
 simplify_epsilon = 50.0

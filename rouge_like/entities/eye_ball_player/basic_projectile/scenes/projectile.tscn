@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqorelbjb67sj" path="res://entities/eye_ball_player/basic_projectile/assets/basic_projectile.png" id="2_5mdd0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ol88e"]
-radius = 6.0
+radius = 5.45455
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 8
